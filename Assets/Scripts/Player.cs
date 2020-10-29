@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public float moveSpeed;
+    public float jumpForce;
 
     Rigidbody2D body;
     bool onGround = false;
@@ -29,7 +30,9 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow) && onGround)
         {
             // Implementar pulo do personagem
-            
+            var newVelocity = body.velocity;
+            newVelocity.y += jumpForce;
+            body.velocity = newVelocity;
         }
     }
 
