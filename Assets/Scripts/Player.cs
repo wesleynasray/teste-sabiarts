@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -13,21 +14,29 @@ public class Player : MonoBehaviour
     int score;
     [SerializeField] private Text scoreHUD;
 
+    Vector2 moveInput;
 
     void Start()
     {
         body = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    private void FixedUpdate()
     {
-        PlayerMove();
+        body.velocity = new Vector2(
+            moveInput.x * moveSpeed * Time.fixedDeltaTime,
+            body.velocity.y
+        );
     }
 
-    void PlayerMove(){  
-        body.velocity = new Vector2(moveSpeed * Time.fixedDeltaTime * Input.GetAxisRaw("Horizontal"),
-                                                body.velocity.y);
-        if (Input.GetKeyDown(KeyCode.UpArrow) && onGround)
+    void OnMove(InputValue value)
+    {
+        moveInput = value.Get<Vector2>();
+    }
+
+    void OnJump()
+    {
+        if (onGround)
         {
             // Implementar pulo do personagem
             var newVelocity = body.velocity;
@@ -44,7 +53,7 @@ public class Player : MonoBehaviour
         }
     }
 
-// Completar o script abaixo
+    // Completar o script abaixo
     void OnTriggerEnter2D(Collider2D col){
         if (col.gameObject.tag == "Coin"){
             score ++;

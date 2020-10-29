@@ -56,8 +56,6 @@ public class ConstrainToArea : MonoBehaviour
             x = Mathf.Clamp(transform.position.x, LeftBorder, RightBorder),
             y = Mathf.Clamp(transform.position.y, BottomBorder, TopBorder)
         };
-
-        print(body.velocity);
     }
 
     private void OnDrawGizmosSelected()
