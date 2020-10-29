@@ -16,7 +16,7 @@ public class CheckGround : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D col){
         if (col.gameObject.tag == "Ground"){
-            player.SetOnGround(true)
+            player.SetOnGround(true);
         }
     }
     
