@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
         body = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         PlayerMove();
     }
