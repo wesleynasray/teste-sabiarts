@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 
     Rigidbody2D body;
     bool onGround = false;
+    
     int score;
     [SerializeField] private Text scoreHUD;
 
@@ -57,6 +58,7 @@ public class Player : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col){
         if (col.gameObject.tag == "Coin"){
             score ++;
+            scoreHUD.text = "Score: " + score.ToString();
         }
     }
     
