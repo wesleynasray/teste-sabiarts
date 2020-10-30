@@ -56,6 +56,8 @@ public class Player : MonoBehaviour
 
     // Completar o script abaixo
     void OnTriggerEnter2D(Collider2D col){
+        return; // Essa feature foi implementada nos scripts Collectable.cs e ScoreLabel.cs
+
         if (col.gameObject.tag == "Coin"){
             score ++;
             scoreHUD.text = "Score: " + score.ToString();
