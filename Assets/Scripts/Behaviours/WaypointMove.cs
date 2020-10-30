@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class WaypointMove : MonoBehaviour
 {
-    [SerializeField] Transform[] points = { };
+    public Transform[] points = { };
+    
     [SerializeField] float speed = 1;
+    
     int currentPointIndex;
 
     private void Update()

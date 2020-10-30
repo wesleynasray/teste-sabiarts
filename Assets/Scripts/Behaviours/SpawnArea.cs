@@ -21,10 +21,17 @@ public class SpawnArea : MonoBehaviour
 
         while (enabled)
         {
-            var spawn = Instantiate(toSpawn, spawnParent);
-            spawn.transform.position = RandomPos();
+            Spawn();
             yield return wait;
         }
+    }
+
+    public virtual GameObject Spawn()
+    {
+        var spawn = Instantiate(toSpawn, spawnParent);
+        spawn.transform.position = RandomPos();
+
+        return spawn;
     }
 
     private Vector2 RandomPos()

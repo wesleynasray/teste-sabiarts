@@ -29,6 +29,7 @@ public class ScoreLabel : MonoBehaviour
 
     private void Collectable_OnCollect(object sender, Collectable.OnCollectArgs e)
     {
-        Score++;
+        if(e.collector.tag == "Player")
+            Score++;
     }
 }
