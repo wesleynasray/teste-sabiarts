@@ -15,4 +15,9 @@ public class GameOverModal : MonoBehaviour
     {
         content.SetActive(true);
     }
+
+    public void OnPlayAgainClicked()
+    {
+        Game.Instance.Restart();
+    }
 }
