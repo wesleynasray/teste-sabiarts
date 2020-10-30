@@ -48,4 +48,5 @@ MonoBehaviour:
   randomY: 0
   toSpawn: {fileID: 5521291093959069316, guid: 1c0636591a774f04c9f071f43fd02990, type: 3}
   spawnInterval: 2
-  spawnParent: {fileID: 0}
+  spawnParent: {fileID: 3866177469401428371}
+  startDelay: 0
