@@ -9,6 +9,7 @@ public class KillArea : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        OnKill?.Invoke(this, null);
+        if(collision.gameObject.tag == "Player")
+            OnKill?.Invoke(this, null);
     }
 }
