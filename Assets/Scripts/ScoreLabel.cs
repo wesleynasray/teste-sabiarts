@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class ScoreLabel : MonoBehaviour
 {
-    [SerializeField] Text label;
+    [SerializeField] Text counter;
 
     int m_Score;
     public int Score
     {
         get { return m_Score; }
-        set { m_Score = value; label.text = value.ToString(); }
+        set { m_Score = value; counter.text = value.ToString(); }
     }
 
     private void Awake()
