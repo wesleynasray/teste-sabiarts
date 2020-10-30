@@ -11,11 +11,6 @@ public class GameOverModal : MonoBehaviour
     {
         Game.Instance.OnGameOver += OnGameOver;
     }
-
-    private void OnDestroy()
-    {
-        Game.Instance.OnGameOver -= OnGameOver;
-    }
     #endregion
 
     private void OnGameOver(object sender, System.EventArgs e)
