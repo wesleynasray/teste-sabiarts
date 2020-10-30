@@ -14,11 +14,18 @@ public class ScoreLabel : MonoBehaviour
         set { m_Score = value; counter.text = value.ToString(); }
     }
 
+    #region Event Subscription
     private void Awake()
     {
         Score = 0;
         Collectable.OnCollect += Collectable_OnCollect;
     }
+
+    private void OnDestroy()
+    {
+        Collectable.OnCollect -= Collectable_OnCollect;
+    }
+    #endregion
 
     private void Collectable_OnCollect(object sender, Collectable.OnCollectArgs e)
     {

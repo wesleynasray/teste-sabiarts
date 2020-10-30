@@ -24,10 +24,24 @@ public class Game : MonoBehaviour
     public event EventHandler OnGameOver;
     #endregion
 
+    #region Event Subscription
     private void Awake()
     {
-        KillArea.OnKill += (s,a) => GameOver();
+        KillArea.OnKill += KillArea_OnKill;
     }
+
+    private void OnDestroy()
+    {
+        KillArea.OnKill -= (s, a) => GameOver();
+    }
+    #endregion
+
+    #region Event Handlers
+    private void KillArea_OnKill(object sender, EventArgs e)
+    {
+        GameOver();
+    }
+    #endregion
 
     public void Restart()
     {
